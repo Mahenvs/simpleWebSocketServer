@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "dev": "nodemon --watch src --exec ts-node src/index.ts",
-    "postinstall": "npm run build" // Ensures the app builds after Railway installs dependencies
+    "postinstall": "npm run build" 
 
   },
   "keywords": [],

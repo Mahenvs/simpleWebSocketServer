@@ -8,7 +8,7 @@ const httpServer = createServer(app);
 dotenv.config();
 
 const io = new Server(httpServer, { cors:{
-    origin:process.env.URL,
+    origin:"*",
     methods:["GET","POST"],
     credentials:true
 } });
@@ -45,6 +45,6 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(PORT,()=>{
-  console.log("Listening");
+  console.log("Listening ",PORT);
   
 });

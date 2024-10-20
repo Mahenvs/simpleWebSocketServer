@@ -14,9 +14,8 @@ const io = new Server(httpServer, { cors:{
 } });
 const PORT = process.env.PORT || 3001;
 
-
 io.on("connection", (socket) => {
-//   console.log(socket.id);
+  console.log(socket.id);
   
   socket.on("joinChat", async (userId1,userId2) =>{
     const roomId = userId1 < userId2 ? `${userId1}-${userId2}` : `${userId2}-${userId1}`;

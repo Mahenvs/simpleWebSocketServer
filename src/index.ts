@@ -8,14 +8,15 @@ const httpServer = createServer(app);
 dotenv.config();
 
 const io = new Server(httpServer, { cors:{
-    origin:"*",
+    origin:process.env.URL,
     methods:["GET","POST"],
     credentials:true
 } });
 const PORT = process.env.PORT || 3001;
 
+
 io.on("connection", (socket) => {
-  console.log(socket.id);
+//   console.log(socket.id);
   
   socket.on("joinChat", async (userId1,userId2) =>{
     const roomId = userId1 < userId2 ? `${userId1}-${userId2}` : `${userId2}-${userId1}`;

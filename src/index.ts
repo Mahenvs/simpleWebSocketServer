@@ -1,14 +1,19 @@
 import  express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import dotenv from 'dotenv';
 
 const app = express();
 const httpServer = createServer(app);
+dotenv.config();
+
 const io = new Server(httpServer, { cors:{
-    origin:"http://localhost:3000",
+    origin:process.env.URL,
     methods:["GET","POST"],
     credentials:true
 } });
+const PORT = process.env.PORT || 3001;
+
 
 io.on("connection", (socket) => {
 //   console.log(socket.id);
@@ -39,4 +44,7 @@ io.on("connection", (socket) => {
 });
 });
 
-httpServer.listen(3001);
+httpServer.listen(PORT,()=>{
+  console.log("Listening");
+  
+});

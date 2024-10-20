@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "nodemon --watch src --exec ts-node src/index.ts"
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "postinstall": "npm run build" // Ensures the app builds after Railway installs dependencies
+
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "socket.io": "^4.8.0"
   }
